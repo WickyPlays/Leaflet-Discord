@@ -1,8 +1,7 @@
 package me.wickyplays.discord.leaflet;
 
 import io.github.cdimascio.dotenv.Dotenv;
-import me.wickyplays.discord.leaflet.commands.HelpCommand;
-import me.wickyplays.discord.leaflet.commands.SayCommand;
+import me.wickyplays.discord.leaflet.commands.*;
 import me.wickyplays.discord.leaflet.listeners.SlashCommandListener;
 import me.wickyplays.discord.leaflet.managers.CommandRegistryManager;
 import me.wickyplays.discord.leaflet.runnables.PresenceRunnable;
@@ -32,6 +31,9 @@ public class Main {
 
         CommandRegistryManager.register(new SayCommand());
         CommandRegistryManager.register(new HelpCommand());
+        CommandRegistryManager.register(new EvalJSCommand());
+        CommandRegistryManager.register(new EvalJavaCommand());
+        CommandRegistryManager.register(new DadJokeCommand());
 
         CommandRegistryManager.upsert(jda);
 
