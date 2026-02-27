@@ -34,6 +34,12 @@ public class Main {
         CommandRegistryManager.register(new EvalJSCommand());
         CommandRegistryManager.register(new EvalJavaCommand());
         CommandRegistryManager.register(new DadJokeCommand());
+        CommandRegistryManager.register(new SnowflakeCommand());
+        CommandRegistryManager.register(new TimezoneCommand());
+        CommandRegistryManager.register(new TimeConverterCommand());
+        CommandRegistryManager.register(new ColorCommand());
+        CommandRegistryManager.register(new UserInfoCommand());
+        CommandRegistryManager.register(new MeCommand());
 
         CommandRegistryManager.upsert(jda);
 
