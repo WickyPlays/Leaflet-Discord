@@ -3,6 +3,7 @@ package me.wickyplays.discord.leaflet;
 import io.github.cdimascio.dotenv.Dotenv;
 import me.wickyplays.discord.leaflet.listeners.MessageReceiveListener;
 import me.wickyplays.discord.leaflet.listeners.SlashCommandListener;
+import me.wickyplays.discord.leaflet.runnables.PresenceRunnable;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.interactions.InteractionContextType;
@@ -28,6 +29,9 @@ public class Main {
                 .build();
 
         CommandListUpdateAction commands = jda.updateCommands();
+
+        //Presence runner
+        new PresenceRunnable().run(jda);
 
         commands.addCommands(
                 Commands.slash("say", "Makes the bot say what you tell it to")
