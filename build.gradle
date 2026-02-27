@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'me.wickyplays.discord.leaflet'
+version = '1.0.0'
+
+String jda_version = '6.3.1'
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    mainClass = 'me.wickyplays.discord.leaflet.Main'
+}
+
+//java {
+//    toolchain {
+//        languageVersion = JavaLanguageVersion.of(17)
+//    }
+//}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(22)
+    }
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation("net.dv8tion:JDA:${jda_version}")
+    implementation 'io.github.cdimascio:dotenv-java:3.2.0'
+    implementation 'org.slf4j:slf4j-api:2.0.12'
+}
+
+test {
+    useJUnitPlatform()
+}
