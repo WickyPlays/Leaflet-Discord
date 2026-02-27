@@ -40,6 +40,7 @@ public class Main {
         CommandRegistryManager.register(new ColorCommand());
         CommandRegistryManager.register(new UserInfoCommand());
         CommandRegistryManager.register(new MeCommand());
+        CommandRegistryManager.register(new LanguageDetectCommand());
 
         CommandRegistryManager.upsert(jda);
 
