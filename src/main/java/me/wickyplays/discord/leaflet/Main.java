@@ -14,8 +14,17 @@ import java.util.EnumSet;
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
-        Dotenv dotenv = Dotenv.load();
-        String token = dotenv.get("DISCORD_TOKEN");
+
+        String systemEnv = System.getenv("DISCORD_TOKEN");
+        String token = "";
+
+        //Attempt to find .env instead
+        if (systemEnv == null) {
+            Dotenv dotenv = Dotenv.load();
+            token = dotenv.get("DISCORD_TOKEN");
+        } else {
+            token = systemEnv;
+        }
 
         JDA jda = JDABuilder.createLight(
                         token,
