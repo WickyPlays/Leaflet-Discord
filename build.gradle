@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'application'
+    id("com.gradleup.shadow") version "9.3.2"
 }
 
 group = 'me.wickyplays.discord.leaflet'

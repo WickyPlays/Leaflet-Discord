@@ -7,9 +7,7 @@ RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 RUN git clone https://github.com/WickyPlays/Leaflet-Discord .
 
 RUN chmod +x gradlew
-RUN ./gradlew build --no-daemon
 
-# This should not be used unless it is your last resort. Use docker run -e DISCORD_TOKEN="" is better
-#ENV DISCORD_TOKEN=""
+RUN ./gradlew clean shadowJar --no-daemon
 
-CMD ["sh","-c","java -jar build/libs/*.jar"]
+CMD ["java","-jar","build/libs/LeafletDiscord-1.0.0-all.jar"]
