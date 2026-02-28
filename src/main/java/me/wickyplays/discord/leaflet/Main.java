@@ -9,21 +9,23 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.EnumSet;
 
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
 
-        String systemEnv = System.getenv("DISCORD_TOKEN");
-        String token = "";
+        String token = System.getenv("DISCORD_TOKEN");
 
         //Attempt to find .env instead
-        if (systemEnv == null) {
-            Dotenv dotenv = Dotenv.load();
+        if (token == null && Files.exists(Paths.get(".env"))) {
+            Dotenv dotenv = Dotenv.configure()
+                    .directory(".")
+                    .filename(".env")
+                    .load();
             token = dotenv.get("DISCORD_TOKEN");
-        } else {
-            token = systemEnv;
         }
 
         JDA jda = JDABuilder.createLight(
