@@ -24,7 +24,7 @@ application {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(22)
+        languageVersion = JavaLanguageVersion.of(17)
     }
 }
 
@@ -42,6 +42,7 @@ dependencies {
     implementation("org.apache.tika:tika-core:3.2.3")
     implementation("org.apache.tika:tika-langdetect:3.2.3")
     implementation("org.apache.tika:tika-langdetect-optimaize:3.2.3")
+
 }
 
 test {
