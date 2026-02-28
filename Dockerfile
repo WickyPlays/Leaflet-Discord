@@ -10,4 +10,4 @@ RUN chmod +x gradlew
 
 RUN ./gradlew clean shadowJar --no-daemon
 
-CMD ["java","-jar","build/libs/LeafletDiscord-1.0.0-all.jar"]
+CMD ["java","-jar","build/libs/app.jar"]
