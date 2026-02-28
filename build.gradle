@@ -17,6 +17,10 @@ application {
     mainClass = 'me.wickyplays.discord.leaflet.Main'
 }
 
+shadowJar {
+    archiveFileName = "app.jar"
+}
+
 //java {
 //    toolchain {
 //        languageVersion = JavaLanguageVersion.of(17)
